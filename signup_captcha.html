@@ -1,0 +1,156 @@
+
+<style>
+.content1 {
+    padding: 10px;
+    background: #e2e2e2 !important;
+}
+</style>
+<!-- Page Header Start -->
+    <div class="page-header" style="background: url(assets/img/banner1.jpg);">
+      <div class="container">
+        <div class="row">         
+          <div class="col-md-12">
+            <div class="breadcrumb-wrapper">
+              <h2 class="page-title">Join Us</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End --> 
+
+    <!-- Content section Start --> 
+    <section id="content">
+      <div class="container ">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <div class="page-login-form box content1">
+              <h3>
+                Register
+              </h3>
+              <form role="form" class="login-form content1" id="basicBootstrapForm_register" method="post" action="signup.php?type=register" >
+               <?php
+              if(isset($_GET["msg"])){
+              echo '<ul class="form-links"><li class="pull-left" style="color:red">'.$_GET["msg"].'</li></ul>';
+              }
+              ?>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-user"></i>
+                    <input type="text" id="sender-email" class="form-control" name="fval[user]" placeholder="Username">
+                  </div>
+                </div> 
+				
+				 <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-phone"></i>
+                    <input type="text" class="form-control" placeholder="Mobile Number" name="fval[mobile]">
+                  </div>
+                </div> 
+				
+                <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-envelope"></i>
+                    <input type="text" id="sender-email" class="form-control"  name="fval[email]" placeholder="Email Address">
+                  </div>
+                </div> 
+                <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-unlock-alt"></i>
+                    <input type="password" class="form-control" placeholder="Password" name="fval[password]">
+                  </div>
+                </div>  
+			
+					<div class="form-group">
+					
+						<div class="g-recaptcha" data-sitekey="6LfmVR0UAAAAAIJFIkqL11hkK_fitA-tov_tUdeH" name="fval[g-recaptcha]" ></div>
+					</div>
+               <button class="btn btn-common log-btn" type="submit" name="submit">Register</button> 
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Content section End --> 
+		<script type="text/javascript" src="plugins/validator/dist/js/bootstrapValidator.js"></script>
+	        <script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script>
+
+ $('#basicBootstrapForm_register').bootstrapValidator({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+           
+            "fval[user]": {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The user name  is required'
+                    }
+                }
+            },
+             
+             "fval[email]": {
+                validators: {
+                    notEmpty: {
+                        message: 'The  email address is required'
+                    },
+                   regexp:{
+                        regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                         message: 'The input is not a valid email address'
+                       
+                    },
+					remote: {
+                        message: 'The email is already register',
+                        url: 'emailvalidation.php',
+                        data: {
+                            type: 'email'
+                        },
+                        type: 'POST'
+                    }
+                  
+                }
+            },
+			    "fval[mobile]": {
+               validators: {
+                   notEmpty: {
+                        message: 'The Mobile Number is required'
+                   },
+				   regexp:{
+                        regexp:/^[0-9]+$/,
+                         message: 'TheNumber must be 10 digits and numbers only allowed'
+                       
+                    },
+                   stringLength: {                       
+				        min: 10,
+                        max: 10,
+                        message: 'TheNumber must be 10 digits and numbers only allowed'
+                  },
+                    
+               }
+           }, 
+          
+            
+			"fval[password]": {
+                validators: {
+                    notEmpty: {
+                        message: 'Password is required'
+                    }
+                }
+            } ,
+			
+			 
+        }
+    });
+</script>
+<script type="text/javascript">
+  var onloadCallback = function() {
+   // alert("grecaptcha is ready!");
+  };
+</script>

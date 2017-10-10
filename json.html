@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="http://d-scribe.de/webtools/jquery-pagination/lib/jquery_pagination/jquery.pagination.js"></script>
+<script>
+$(function () {
+    function handlePaginationClick(newPageIndex, paginationNavigation) {
+        var paginationItems = $(paginationNavigation).data('paginationItems'),
+            startItem = newPageIndex * this.items_per_page,
+            endItem = Math.min(startItem + this.items_per_page, paginationItems.length),
+            i,
+            newContent = '';
+        // This selects 20 elements from a content array
+        for (i = startItem; i < endItem; i += 1) {
+            newContent += '<li>' + paginationItems[i] + '</li>';
+        }
+        $('#paginationContent').html(newContent);
+        return false;
+    }
+    var paginationItems = [
+        'Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6',
+        'Item7', 'Item8', 'Item9', 'Item10', 'Item11', 'Item12',
+        'Item13', 'Item14', 'Item15', 'Item16', 'Item17', 'Item18'
+    ];
+    $("#paginationNavigation")
+        .data('paginationItems', paginationItems)
+        .pagination(paginationItems.length, {
+            items_per_page: 4, 
+            callback: handlePaginationClick
+        });
+});
+</script>
+</head>
+<body>
+<div id="paginationNavigation"></div>
+<ul id="paginationContent">
+</ul>
+</body>
+</html>

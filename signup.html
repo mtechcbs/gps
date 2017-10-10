@@ -1,0 +1,310 @@
+
+<style>
+.content1 {
+    padding: 10px;
+    background: #fff !important;
+}
+#content{
+    background: #e2e2e2 !important;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+#captchaOperation{
+color: #fff !important;background:#4b4b4d;padding:5px;text-align:center;border: 3px solid #fff;border-width:5px;  
+    border-style:double;
+}
+.daterangepicker .calendar td, .daterangepicker .calendar th {
+    white-space: nowrap;
+    text-align: center;
+    min-width: 50px;
+    font-size: 12px !important;
+}
+</style>
+
+
+<!-- Page Header Start -->
+    <div class="page-header" style="background: url(assets/img/banner1.jpg);">
+      <div class="container">
+        <div class="row">         
+          <div class="col-md-12">
+            <div class="breadcrumb-wrapper">
+              <h2 class="page-title">Join Us</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End --> 
+
+    <!-- Content section Start --> 
+    <section id="content">
+      <div class="container ">
+       
+		
+          <div class="col-md-5 col-centered">
+            <div class="page-login-form box content1">
+              <h3>
+                Register
+              </h3>
+			                <form role="form" class="login-form" action="signup.php?type=register" method="post" id="basicBootstrapForm_register" style="padding:36px;">
+							<?php
+              if(isset($_GET["msg"])){
+              echo '<ul class="form-links"><li class="pull-left" style="color:red;">'.$_GET['msg'].'</li></ul>';
+              }
+              ?>
+             
+                <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-user"></i>
+                    <input type="text" id="" class="form-control" name="fval[first_name]" placeholder="First Name">
+                  </div>
+                </div> 
+				
+				 <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-user"></i>
+                    <input type="text" id="" class="form-control" name="fval[last_name]" placeholder="Last Name">
+                  </div>
+                </div> 
+				
+				 <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-calendar"></i>
+                    <input type="text"  class="form-control" name="fval[dob]" id="tdate" placeholder="D.O.B" readonly>
+                  </div>
+                </div> 
+				
+                <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-unlock-alt"></i>
+                    <input type="text" class="form-control" placeholder="Mobile No" name="fval[mobile]" >
+                  </div>
+                </div>     
+
+            <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-unlock-alt"></i>
+                    <input type="text" class="form-control" placeholder="Your Email Id" name="fval[email]" >
+                  </div>
+                </div> 	
+
+				<div class="form-group">
+  <select class="form-control" id="sel1">
+    <option value="1" name="fval[gender]">Select your Gender</option>
+    <option value="1" name="fval[gender]">Male</option>
+    <option value="0" name="fval[gender]">Female</option>
+
+  </select>
+</div>
+				
+	<div class="form-group" style="margin-bottom:20px;">
+				<label class="col-md-3 control-label" id="captchaOperation" ></label>
+				<div class="col-md-6">
+				<input type="text" class="form-control" name="captcha" />
+				</div>
+				</div>
+				
+			
+                <button class="btn btn-common log-btn" type="submit">Submit</button>
+              </form>
+			  
+             <!--  <form  class="login-form content1" id="basicBootstrapForm_register" method="post" action="signup.php?type=register">
+			  
+			     <div class="form-group">
+      <label for="usr">Name:</label>
+      <input type="text" class="form-control" id="sender-email" class="form-control" name="fval[user]" placeholder="Your Name">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd">
+    </div>
+			  
+			  
+<!--                 <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-user"></i>
+                    <input type="text" id="sender-email" class="form-control" name="fval[user]" placeholder="Your Name">
+                </div> 
+				</div>
+				 <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-phone"></i>
+                    <input type="text" class="form-control" placeholder="Mobile Number" name="fval[mobile]">
+                  </div>
+                </div> 
+				
+                <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-envelope"></i>
+                    <input type="text" id="sender-email" class="form-control"  name="fval[email]" placeholder="Email Address">
+                  </div>
+                </div>  -->
+              <!--   <div class="form-group">
+                  <div class="input-icon">
+                    <i class="icon fa fa-unlock-alt"></i>
+                    <input type="password" class="form-control" placeholder="Password" name="fval[password]">
+                  </div>
+                </div>   
+			<div class="form-group" style="margin-bottom:20px;">
+				<label class="col-md-3 control-label" id="captchaOperation" ></label>
+				<div class="col-md-6">
+				<input type="text" class="form-control" name="captcha" />
+				</div>
+				</div></br> 
+		<div class="form-group" style="margin-top: 35px">
+					
+               <button type="submit" class="btn btn-common log-btn" name="submit">Register</button> 
+			   </div>
+              </form>
+ -->
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    <!-- Content section End --> 
+ 
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.css"/>
+<script src="assets/js/jquery.datetimepicker.full.js"></script>
+
+<script src="plugins/daterangepicker/bootstrapValidator.js" type="text/javascript"></script>  
+
+<script>
+
+ 
+
+// Generate a simple captcha
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+	
+
+$(document).ready(function () {
+$('#tdate').datetimepicker({
+format:"Y-m-d",
+timepicker:false,
+})
+
+
+});
+
+	
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+ $('#basicBootstrapForm_register').bootstrapValidator({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+           
+            "fval[first_name]": {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'Your First name  is required'
+                    }
+                }
+            },  
+			
+			"fval[last_name]": {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'Your Last name  is required'
+                    }
+                }
+            },
+			
+		 	
+			/*"fval[dob]": {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'Your D.O.B  is required'
+                    }
+                }
+            },
+             
+             "fval[email]": {
+                validators: {
+                    notEmpty: {
+                        message: 'The  email address is required'
+                    },
+                   regexp:{
+                        regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                         message: 'The input is not a valid email address'
+                       
+                    },
+					remote: {
+                        message: 'The email is already register',
+                        url: 'signup.php',
+                        data: {
+                            type: 'emailvalidation'
+                        },
+                        type: 'POST'
+                    }
+                  
+                }
+            },*/
+
+          
+			"fval[mobile]": {
+               validators: {
+                   notEmpty: {
+                        message: 'The Mobile Number is required'
+                   },
+				   regexp:{
+                        regexp:/^[0-9]+$/,
+                         message: 'TheNumber must be 10 digits and numbers only allowed'
+                       
+                    },
+                   stringLength: {                       
+				        min: 10,
+                        max: 10,
+                        message: 'TheNumber must be 10 digits and numbers only allowed'
+                  },
+				  remote: {
+                        message: 'The mobile number is already register',
+                        url: 'signup.php',
+                        data: {
+                            type: 'mobilevalidation'
+                        },
+                        type: 'POST'
+                    }
+                    
+               }
+           }, 
+			
+			
+			
+			captcha: {
+                validators: {
+                    callback: {
+                        message: 'Invalid Captcha Code',
+                        callback: function(value, validator) {
+                            var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
+                            return value == sum;
+                        }
+                    }
+                }
+            } 
+        }
+    });
+	
+	window.history.pushState('GPS - Local Search Engine', 'Title', 'signup.php');
+	
+	$(function() {
+        $( "#datepicker" ).datepicker({
+            dateFormat : 'mm/dd/yy',
+            changeMonth : true,
+            changeYear : true,
+            yearRange: '-100y:c+nn',
+            maxDate: '-1d'
+        });
+    });
+
+</script>
